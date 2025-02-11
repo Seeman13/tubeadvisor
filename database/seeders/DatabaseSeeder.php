@@ -13,11 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(CategorySeeder::class);
+        $this->call(LanguageSeeder::class);
+        $this->call(RegionSeeder::class);
+        $this->call(ChannelSeeder::class);
+
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'admin',
+            'email' => 'admin@mail.su',
         ]);
     }
 }
