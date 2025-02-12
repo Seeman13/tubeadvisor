@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::group(['namespace' => 'App\\Http\\Controllers\\API\\v1\\'], static function () {
+    Route::get('/recommendations', 'ChannelController@index')->name('api.channels.index');
+})/*->middleware('auth:sanctum')*/;

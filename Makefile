@@ -9,6 +9,12 @@ key-generate:
 ide-helper:
 	php artisan ide-helper:generate
 
+test:
+	php artisan test --coverage
+
+logs:
+	php artisan pail
+
 migrate:
 	php artisan migrate
 seed:
@@ -20,7 +26,7 @@ model:
 	php artisan make:model -f -m -s --force $(model)
 
 endpoint:
-	php artisan make:controller API/v1/$(name)Controller -m$(model) --api --phpunit --force
+	php artisan make:controller API/v1/$(name)Controller -m$(model) -R --api --phpunit --force
 
 request:
 	php artisan make:request $(name)Request --force
@@ -30,5 +36,3 @@ route-list:
 
 clear:
 	php artisan optimize:clear
-
-

@@ -32,15 +32,15 @@ return new class extends Migration
                     ->default(0.00)
                     ->comment('ER rate');
 
-                $table->unsignedTinyInteger('category')
+                $table->unsignedTinyInteger('category_id')
                     ->nullable()
                     ->comment('ID category');
 
-                $table->unsignedTinyInteger('language')
+                $table->unsignedTinyInteger('language_id')
                     ->nullable()
                     ->comment('ID language');
 
-                $table->unsignedTinyInteger('region')
+                $table->unsignedTinyInteger('region_id')
                     ->nullable()
                     ->comment('ID region');
 
@@ -50,19 +50,19 @@ return new class extends Migration
 
                 $table->timestamps();
 
-                $table->foreign('category')
+                $table->foreign('category_id')
                     ->references('id')
                     ->on('categories')
                     ->onDelete('set null')
                     ->onUpdate('cascade');
 
-                $table->foreign('language')
+                $table->foreign('language_id')
                     ->references('id')
                     ->on('languages')
                     ->onDelete('set null')
                     ->onUpdate('cascade');
 
-                $table->foreign('region')
+                $table->foreign('region_id')
                     ->references('id')
                     ->on('regions')
                     ->onDelete('set null')
