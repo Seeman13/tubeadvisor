@@ -8,7 +8,7 @@ use App\Models\Scopes\ChannelScope;
  * Class ChannelRepository
  * @package App\Repositories
  */
-readonly class ChannelRepository
+class ChannelRepository
 {
     public function __construct(private ChannelScope $model) {}
 
@@ -16,7 +16,7 @@ readonly class ChannelRepository
      * @param array $filters
      * @return array
      */
-    public function fetchChannels(array $filters): array
+    public function fetchChannels(array $filters = []): array
     {
         return $this->model->search($filters);
     }

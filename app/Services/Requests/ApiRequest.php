@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Class ApiRequest
  * @package App\Services\Requests
  */
-class ApiRequest extends FormRequest
+abstract class ApiRequest extends FormRequest
 {
     /**
      * Handle a failed validation attempt.
@@ -28,4 +28,9 @@ class ApiRequest extends FormRequest
             response()->json(compact('errors'), Response::HTTP_UNPROCESSABLE_ENTITY)
         );
     }
+
+    /**
+     * @return array
+     */
+    public abstract function getQueryParams(): array;
 }

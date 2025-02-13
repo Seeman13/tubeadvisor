@@ -111,7 +111,7 @@ class ChannelScope extends Channel
      * @param array $params
      * @return array
      */
-    public function search(array $params): array
+    public function search(array $params = []): array
     {
         $params = array_filter($params, static function ($element) {
             return $element !== null;

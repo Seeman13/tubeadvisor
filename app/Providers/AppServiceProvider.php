@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use DB, Log;
+use App, DB, Log;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -21,13 +21,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // logging DB ...
-        DB::listen(function ($query) {
-            $location = collect(debug_backtrace())->filter(function ($trace) {
-                return !str_contains($trace['file'], 'vendor');
-            })->first();
+        if (!App::runningUnitTests()) {
+            // logging DB ...
+            DB::listen(function ($query) {
+                $location = collect(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS))
+                    ->first(fn($trace) => isset($trace['file']) && !str_contains($trace['file'], 'vendor'));
 
-            Log::info("
+                Log::info("
                ---------------------------------------------------------------------------------------------------------
                query: $query->sql
                time: $query->time
@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
                line: {$location['line']}
                ---------------------------------------------------------------------------------------------------------
             ");
-        });
+            });
+        }
     }
 }
