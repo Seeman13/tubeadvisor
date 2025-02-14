@@ -5,18 +5,19 @@ namespace App\Http\Controllers\API\v1;
 use Cache;
 use Illuminate\Http\JsonResponse;
 
+use OpenApi\Attributes as OA;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChannelRequest as Request;
 use App\Repositories\ChannelRepository;
 
+#[OA\Info(version: '0.1', title: 'TubeAdvisor')]
 class ChannelController extends Controller
 {
     public function __construct(private readonly ChannelRepository $repository) {}
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
+    #[OA\Get(path: '/api/v1/recommendations')]
+    #[OA\Response(response: '200', description: 'The data')]
     public function index(Request $request): JsonResponse
     {
         $filters = $request->getQueryParams();

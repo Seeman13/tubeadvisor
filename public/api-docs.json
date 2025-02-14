@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TubeAdvisor",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/v1/recommendations": {
+            "get": {
+                "operationId": "457dbb3839d77329ed1afacbe1d883eb",
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        }
+    }
+}

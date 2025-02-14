@@ -7,11 +7,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "kyslik/column-sortable": "^6.0",
         "laravel/framework": "^11.31",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "predis/predis": "^2.3",
-        "kyslik/column-sortable": "^6.0"
+        "zircote/swagger-php": "^5.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.5",
