@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('channels')) {
             Schema::create('channels', function (Blueprint $table) {
                 $table->uuid('id')
-                    ->default(DB::raw('(UUID())'))
+                    ->default(DB::raw('(uuid_generate_v4())')) // UUID() - for MySQL
                     ->comment('ID');
 
                 $table->char('title', 100)

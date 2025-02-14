@@ -28,9 +28,9 @@ RUN mkdir -p /var/log/supervisor && chmod 755 /var/log/supervisor
 COPY ./.. /var/www/html
 RUN mkdir -p storage bootstrap/cache && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-RUN composer install --optimize-autoloader
+#RUN composer install --optimize-autoloader
 
-RUN php artisan key:generate && php artisan migrate && php artisan db:seed
+#RUN php artisan key:generate && php artisan migrate && php artisan db:seed
 
 WORKDIR /var/www/html
 
