@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Eloquent;
 
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\{Collection, Model};
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\{Carbon, Str};
+use Illuminate\Support\Carbon;
+
+use App\Observers\CategoryObserver;
 
 /**
  * @property int $id ID
@@ -15,10 +18,14 @@ use Illuminate\Support\{Carbon, Str};
  * @property bool $active Active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read Collection<int, Channel> $channels
  * @property-read int|null $channels_count
+ *
+ * @package App\Models
  * @mixin Eloquent
  */
+#[ObservedBy([CategoryObserver::class])]
 class Category extends Model
 {
     /**
@@ -36,26 +43,6 @@ class Category extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
-
-    /**
-     * @return void
-     */
-    protected static function boot(): void
-    {
-        parent::boot();
-
-        self::creating(static function($model) {
-            if (empty($model->path)) {
-                $model->path = Str::slug($model->name);
-            }
-        });
-
-        self::updating(static function($model) {
-            if (empty($model->path)) {
-                $model->path = Str::slug($model->name);
-            }
-        });
-    }
 
     /**
      * @return HasMany

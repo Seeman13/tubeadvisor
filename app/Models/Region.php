@@ -14,7 +14,10 @@ use Illuminate\Support\Carbon;
  * @property string $code Code
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read Collection<int, Channel> $channels
+ *
+ * @package App\Models
  * @mixin Eloquent
  */
 class Region extends Model

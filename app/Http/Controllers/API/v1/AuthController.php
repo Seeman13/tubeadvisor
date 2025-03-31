@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API\v1;
 
 use Auth;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+
+use Illuminate\Http\{JsonResponse, Request};
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Requests\Auth\{LoginRequest, RegisterRequest};
 use App\Http\Controllers\Controller;
+use App\Http\Requests\API\v1\Auth\{LoginRequest, RegisterRequest};
 use App\Models\User;
 
 class AuthController extends Controller

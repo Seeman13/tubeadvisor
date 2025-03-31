@@ -15,7 +15,10 @@ use Illuminate\Support\Carbon;
  * @property bool $active Active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read Collection<int, Channel> $channels
+ *
+ * @package App\Models
  * @mixin Eloquent
  */
 class Language extends Model

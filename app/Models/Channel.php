@@ -7,6 +7,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Lang;
 
 /**
  * @property string $id                        ID
@@ -20,6 +21,12 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $last_video_period    Last video period
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
+ * @property-read Category $category
+ * @property-read Language $language
+ * @property-read Region $region
+ *
+ * @package App\Models
  * @mixin Eloquent
  */
 class Channel extends Model
@@ -66,25 +73,6 @@ class Channel extends Model
     ];
 
     /**
-     * Field names.
-     *
-     * @var array
-     */
-    public static array $attributeLabels = [
-        'id'                => 'ID',
-        'title'             => 'Title',
-        'subscribers_count' => 'Total subscribers',
-        'average_views'     => 'AVG views',
-        'engagement_rate'   => 'ER rate',
-        'category_id'       => 'Category',
-        'language_id'       => 'Language',
-        'region_id'         => 'Region',
-        'last_video_period' => 'Last video period',
-        'created_at'        => 'Created at',
-        'updated_at'        => 'Updated at'
-    ];
-
-    /**
      * @return BelongsTo
      */
     public function category(): BelongsTo
@@ -106,5 +94,27 @@ class Channel extends Model
     public function region(): BelongsTo
     {
         return $this->belongsTo(Region::class);
+    }
+
+    /**
+     * Field names.
+     *
+     * @return array
+     */
+    public function attributeLabels(): array
+    {
+        return [
+            'id'                => 'ID',
+            'title'             => Lang::get('labels.title'),
+            'subscribers_count' => Lang::get('labels.subscribers_count'),
+            'average_views'     => Lang::get('labels.average_views'),
+            'engagement_rate'   => Lang::get('labels.engagement_rate'),
+            'category_id'       => Lang::get('labels.category_id'),
+            'language_id'       => Lang::get('labels.language_id'),
+            'region_id'         => Lang::get('labels.region_id'),
+            'last_video_period' => Lang::get('labels.last_video_period'),
+            'created_at'        => Lang::get('labels.created_at'),
+            'updated_at'        => Lang::get('labels.updated_at'),
+        ];
     }
 }

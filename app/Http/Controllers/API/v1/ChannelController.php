@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ChannelRequest as Request;
+use App\Http\Requests\API\v1\Channel\ChannelRequest as Request;
 use App\Repositories\ChannelRepository;
 
 #[OA\Info(version: '0.1', title: 'TubeAdvisor')]

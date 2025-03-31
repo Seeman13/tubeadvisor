@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Services\Requests;
+namespace App\Http\Requests\API\v1;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ApiRequest
  * @package App\Services\Requests
  */
-abstract class ApiRequest extends FormRequest
+abstract class BaseRequest extends FormRequest
 {
     /**
      * Handle a failed validation attempt.

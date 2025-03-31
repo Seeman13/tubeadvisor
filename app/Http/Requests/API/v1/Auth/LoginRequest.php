@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\API\v1\Auth;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 
-use App\Services\Requests\ApiRequest;
+use App\Http\Requests\API\v1\BaseRequest;
 
-class LoginRequest extends ApiRequest
+class LoginRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.

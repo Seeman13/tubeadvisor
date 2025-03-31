@@ -8,7 +8,7 @@ use App\Models\Scopes\ChannelScope;
  * Class ChannelRepository
  * @package App\Repositories
  */
-class ChannelRepository
+readonly class ChannelRepository
 {
     public function __construct(private ChannelScope $model) {}
 

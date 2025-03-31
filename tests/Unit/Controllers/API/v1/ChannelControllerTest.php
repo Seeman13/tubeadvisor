@@ -1,16 +1,14 @@
 <?php
 namespace Tests\Unit\Controllers\API\v1;
 
-use Mockery;
-
+use App\Http\Controllers\API\v1\ChannelController;
+use App\Http\Requests\API\v1\Channel\ChannelRequest as Request;
+use App\Repositories\ChannelRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
+use Mockery;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
-
-use App\Http\Controllers\API\v1\ChannelController;
-use App\Http\Requests\ChannelRequest as Request;
-use App\Repositories\ChannelRepository;
 
 class ChannelControllerTest extends TestCase
 {
